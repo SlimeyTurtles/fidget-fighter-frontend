@@ -11,7 +11,7 @@ import SwiftUI
 struct FidgetFighterApp: App {
     var body: some Scene {
         WindowGroup {
-            MultiplayerSpinnerGameView()
+            ContentView()
         }
     }
 }
