@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		740B373F2D116BD10043304C /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 740B373E2D116BD10043304C /* SplineRuntime */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		74B4FF272D115388006F51DF /* FidgetFighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FidgetFighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				740B373F2D116BD10043304C /* SplineRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = FidgetFighter;
 			packageProductDependencies = (
+				740B373E2D116BD10043304C /* SplineRuntime */,
 			);
 			productName = FidgetFighter;
 			productReference = 74B4FF272D115388006F51DF /* FidgetFighter.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 74B4FF1E2D115388006F51DF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				740B373D2D116BD10043304C /* XCRemoteSwiftPackageReference "spline-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 74B4FF282D115388006F51DF /* Products */;
 			projectDirPath = "";
@@ -260,6 +269,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -289,6 +299,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +335,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		740B373D2D116BD10043304C /* XCRemoteSwiftPackageReference "spline-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/splinetool/spline-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		740B373E2D116BD10043304C /* SplineRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 740B373D2D116BD10043304C /* XCRemoteSwiftPackageReference "spline-ios" */;
+			productName = SplineRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 74B4FF1F2D115388006F51DF /* Project object */;
 }
