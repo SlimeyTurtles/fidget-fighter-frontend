@@ -11,6 +11,7 @@ struct MultiplayerSpinnerGameView: View {
     @ObservedObject var wsManager = WebSocketManager.shared
     @Binding var isFindingMatch: Bool
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var userData: UserData
     
     @State private var myAngle: Double = 0                  // My spinner angle
     @State private var opponentAngle: Double = 0            // Opponent spinner angle
@@ -50,7 +51,7 @@ struct MultiplayerSpinnerGameView: View {
             
             // My Spinner
             VStack {
-                Image(systemName: "gear")
+                Image(systemName: userData.spinningItem)
                     .resizable()
                     .frame(width: 150, height: 150)
                     .foregroundColor(.blue)
@@ -61,7 +62,6 @@ struct MultiplayerSpinnerGameView: View {
                                 handleDrag(value: value)
                             }
                             .onEnded { _ in
-                                print("Drag ended properly")
                                 calculateRPMAndSend()
                             }
                     )
@@ -206,6 +206,12 @@ struct MultiplayerSpinnerGameView: View {
 
             opponentRPM = result.player2RPM
             startOpponentMomentumTimer(rpm: result.player2RPM)
+            
+            if (result.winner == "Player 1 Wins!") {
+                userData.incrementWins()
+            } else if (result.winner == "Player 2 Wins!") {
+                userData.incrementLosses()
+            }
 
             // Show the overlay after the final spin animation finishes
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {

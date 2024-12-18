@@ -26,6 +26,19 @@ struct FindingMatchView: View {
                     .scaleEffect(1.5)
                     .padding()
                 Spacer()
+                
+                Button("Cancel") {
+                    wsManager.disconnectWebSocket()
+                    isFindingMatch = false
+                }
+                .font(.title2)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 200)
+                .background(Color.red)
+                .cornerRadius(10)
+                
+                Spacer()
             }
             .onAppear {
                 wsManager.connectWebSocket() // Connect when FindingMatchView appears
@@ -34,6 +47,7 @@ struct FindingMatchView: View {
             }
             .navigationDestination(isPresented: $navigateToGame) {
                 MultiplayerSpinnerGameView(isFindingMatch: $isFindingMatch)
+                    .navigationBarBackButtonHidden(true)
             }
         }
     }
