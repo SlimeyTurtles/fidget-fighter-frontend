@@ -9,6 +9,8 @@ import Foundation
 
 extension Notification.Name {
     static let opponentRPMUpdated = Notification.Name("opponentRPMUpdated")
+    static let matchFound = Notification.Name("matchFound")
+    static let gameOver = Notification.Name("gameOver")
 }
 
 struct AppConstants {

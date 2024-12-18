@@ -9,26 +9,41 @@ import SwiftUI
 
 struct FindingMatchView: View {
     @ObservedObject var wsManager = WebSocketManager.shared
+    @State private var navigateToGame = false // State to trigger navigation
+    @Binding var isFindingMatch: Bool
 
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Finding Match...")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .padding()
+        NavigationStack {
+            VStack {
+                Spacer()
+                Text("Finding Match...")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .padding()
 
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                .scaleEffect(1.5)
-                .padding()
-            Spacer()
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .scaleEffect(1.5)
+                    .padding()
+                Spacer()
+            }
+            .onAppear {
+                wsManager.connectWebSocket() // Connect when FindingMatchView appears
+                wsManager.sendFindMatch()    // Send the find-match request
+                observeMatchFound()
+            }
+            .navigationDestination(isPresented: $navigateToGame) {
+                MultiplayerSpinnerGameView(isFindingMatch: $isFindingMatch)
+            }
         }
-        .onAppear {
-            wsManager.sendFindMatch()
-        }
-        .navigationDestination(isPresented: $wsManager.matchFound) {
-            MultiplayerSpinnerGameView()
+    }
+
+    // MARK: - Observe Match Found
+    func observeMatchFound() {
+        NotificationCenter.default.addObserver(forName: .matchFound, object: nil, queue: .main) { _ in
+            DispatchQueue.main.async {
+                self.navigateToGame = true
+            }
         }
     }
 }

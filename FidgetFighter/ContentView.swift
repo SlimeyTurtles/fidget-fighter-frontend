@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isFindingMatch = false
+
     var body: some View {
-        NavigationStack {
-            HomeView()
+        if isFindingMatch {
+            FindingMatchView(isFindingMatch: $isFindingMatch)
+        } else {
+            HomeView(isFindingMatch: $isFindingMatch)
         }
     }
 }
