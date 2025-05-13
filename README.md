@@ -32,15 +32,14 @@ struct AppConstants {
 
 # Milestone 1
 
--[x] Create a GitHub project, make sure each member is invited as collaborators.
--[x] Submit GitHub link to iLearn
--[x] Create a readme for your team. Your proposal will live in the readme of your project.
--[x] Each member of your team should add their name to the readme and push those changes to
-master so we can figure out any GitHub related issues early
--[x] Create a proposal
--[x] Must have features
--[x] Nice to have feature
--[x] Create some basic wire-frames for your main feature
+- [x] Create a GitHub project, make sure each member is invited as collaborators.
+- [x] Submit GitHub link to iLearn
+- [x] Create a readme for your team. Your proposal will live in the readme of your project.
+- [x] Each member of your team should add their name to the readme and push those changes to master so we can figure out any GitHub related issues early
+- [x] Create a proposal
+- [x] Must have features
+- [x] Nice to have feature
+- [x] Create some basic wire-frames for your main feature
 
 Must have features:
 
